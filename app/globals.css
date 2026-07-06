@@ -255,4 +255,13 @@
   .duration-700 {
     animation-duration: 700ms;
   }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.15; }
+  }
+
+  .animate-blink {
+    animation: blink 0.8s infinite;
+  }
 }
