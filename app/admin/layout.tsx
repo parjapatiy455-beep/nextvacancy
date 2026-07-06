@@ -18,8 +18,12 @@ export default function AdminLayout({
   const [adminName, setAdminName] = useState('');
 
   useEffect(() => {
-    checkSession();
-  }, []);
+    if (pathname !== '/admin/login') {
+      checkSession();
+    } else {
+      setLoading(false);
+    }
+  }, [pathname]);
 
   const checkSession = async () => {
     try {
@@ -48,6 +52,12 @@ export default function AdminLayout({
     }
   };
 
+  const isLoginPage = pathname === '/admin/login';
+
+  if (isLoginPage) {
+    return <>{children}</>;
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -59,8 +69,6 @@ export default function AdminLayout({
   if (!isLoggedIn) {
     return null;
   }
-
-  const isLoginPage = pathname === '/admin/login';
 
   return (
     <div className="min-h-screen bg-gray-50">
