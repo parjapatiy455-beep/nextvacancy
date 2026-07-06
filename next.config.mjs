@@ -7,6 +7,8 @@ const nextConfig = {
     unoptimized: true,
   },
   serverExternalPackages: ['better-sqlite3'],
+  output: 'standalone',
+  outputFileTracingRoot: process.cwd(),
 }
 
 export default nextConfig
