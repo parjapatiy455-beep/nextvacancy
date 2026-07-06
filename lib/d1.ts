@@ -17,8 +17,7 @@ function getLocalDatabase(): any {
   if (!localDb) {
     const fs = require('fs');
     const path = require('path');
-    const parts = ['better', 'sqlite3'];
-    const Database = require(parts.join('-'));
+    const Database = require('better-sqlite3');
 
     const dbDir = path.join(process.cwd(), '.data');
     const dbPath = path.join(dbDir, 'jobs-portal.db');
